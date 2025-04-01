@@ -1,6 +1,5 @@
 document.addEventListener('DOMContentLoaded', async () => {
     const tracksList = document.getElementById('tracks-list');
-    const importBtn = document.getElementById('import-btn');
     const playBtn = document.getElementById('play-btn');
     const prevBtn = document.getElementById('prev-btn');
     const nextBtn = document.getElementById('next-btn');
@@ -284,14 +283,6 @@ document.addEventListener('DOMContentLoaded', async () => {
                 showSoundCloudTracks = false;
             }
         });
-    });
-
-    importBtn.addEventListener('click', async () => {
-        const updatedTracks = await window.electronAPI.importTracks();
-        if (updatedTracks.length > 0) {
-            tracks = updatedTracks;
-            renderTracks();
-        }
     });
 
     playBtn.addEventListener('click', () => {
